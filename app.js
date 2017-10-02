@@ -1,9 +1,12 @@
 var inquirer = require("inquirer");
+var fs = require("fs");
 
 var BasicCard = require("./BasicCard.js");
 var ClozeCard = require("./ClozeCard.js");
 var BuildCards = require("./BuildCards.js");
 var cards = require("./log.js");
+
+var tempSave = "cards-library.txt";
 
 var counter = 0;
 
@@ -33,7 +36,7 @@ var playBasic = function () {
 		});
 	} 
 	else {
-		console.log("You have played all of the cards");
+		console.log("\nYou have played all of the cards\n");
 		nextStep();
 	}	
 };
@@ -64,8 +67,9 @@ var playColzeDeleted = function () {
 		});
 	} 
 	else {
-		console.log("You have played all of the cards");
-		nextStep();
+			console.log("\nYou have played all of the cards\n");
+			nextStep();
+
 	}
 };
 
@@ -90,13 +94,20 @@ var addCards = function() {
 	]).then(function(adding) {
 		var newCard = new BuildCards(adding.front, adding.back, adding.fullText);
 
+		try{
+		fs.appendFileSync(tempSave, "{\nfront: " + newCard.front + "\nback: " + newCard.back + "\nfullText: " + newCard.fullText);
+			console.log("\nNew card has been added to the deck.\n");
+		}catch (e) {
+			console.log("New card cannot be added", e)
+		}
+			
 		cards.push({
 			front: newCard.front,
 			back: newCard.back,
 			fullText: newCard.fullText
 		});
-		console.log("New card has been added to the deck.")
-
+		
+		console.log(cards);
 		nextStep();
 	});
 };
@@ -172,3 +183,5 @@ var runThis = function(type) {
 };
 
 runThis(process.argv[2]);
+
+module.exports = addCards;

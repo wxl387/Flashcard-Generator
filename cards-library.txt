@@ -1,0 +1,4 @@
+[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]{
+front: test1
+back: test2
+fullText: test3
