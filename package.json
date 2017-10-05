@@ -1,0 +1,26 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "user can play 'basic' and 'cloze-deleted' flashcards.\r user can 'add-cards'",
+  "main": "BasicCard.js",
+  "dependencies": {
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security",
+    "inquirer": "^3.3.0",
+    "require": "^2.4.20"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wxl387/Flashcard-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wxl387/Flashcard-Generator/issues"
+  },
+  "homepage": "https://github.com/wxl387/Flashcard-Generator#readme"
+}
